@@ -31,3 +31,18 @@ E App.js
  - add search "input" field
  - import useState hook, and bind states value to 'query', onChange to 'setQuery', oneKeyPress to a "callWeatherApi"
 
+
+
+git tag -a stage_01 -m "console log, axois result"
+git push origin --tags
+
+
+-- stage 2 ---
+Edit App.js
+- store the retrieved axios openweather data into state const 'weather'
+- Display weather: 
+ - {weather.main && ( <new html content to show weather data>)}, city-name, country as superscript, city-temp, icon
+
+git tag -a stage_02 -m "render weather info - UI done"
+git push origin --tags
+

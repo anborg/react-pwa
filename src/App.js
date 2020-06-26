@@ -11,10 +11,15 @@ import {useState} from 'react';
 // function component
 const App = () => {
     const[query, setQuery] = useState(''); // binds this variables? 
+    
+    const[weather, setWeather] = useState({});//store openweather data in this state
+
     const search = async(e) => {
         if(e.key === 'Enter'){
             const data = await fetchWeather(query) 
-            console.log(data);
+            //console.log(data);
+            setWeather(data);
+            setQuery(''); // once weather is retrived and stored, reset the input field
         }
     }
 
@@ -23,13 +28,28 @@ const App = () => {
     // value and onChange are IMPORTANT, must come from state
     return (
         <div className="main-container">
-                <input type="text" className="search" 
-                    placeholder="Which city? ..."
+                <input type="text" className="search" placeholder="Which city? ..."
                     value={query}
                     onChange={ (e) => setQuery(e.target.value)}  
                     onKeyPress={search}
                     // check Tutorial Event & Input handling.
                 />
+                {weather.main && ( // If weather data is retrived successfuly, display the content
+                    <div className="city">
+                        <h2 className="cityName">
+                            <span>{weather.name}</span>
+                            <sup>{weather.sys.country}</sup> 
+                        </h2>                    
+                        <div className="city-temp">
+                            {Math.round(weather.main.temp)}
+                            <sup>&deg;C</sup>
+                        </div>
+                        <div className="info">
+                            <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+                            <p>{weather.weather[0].description}</p>
+                        </div>
+                    </div>
+                )}
         </div>
     
     );
