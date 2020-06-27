@@ -28,7 +28,8 @@ const App = () => {
     // value and onChange are IMPORTANT, must come from state
     return (
         <div className="main-container">
-                <input type="text" className="search" placeholder="Which city? ..."
+                <label>First name:</label>
+                <input id="searchfield" type="text" className="search" placeholder="Which city? ..."
                     value={query}
                     onChange={ (e) => setQuery(e.target.value)}  
                     onKeyPress={search}
