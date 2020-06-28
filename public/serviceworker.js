@@ -1,6 +1,6 @@
 const CACHE_NAME="version-1";
 
-const urlsToCache= ['index.html','offline.html' ]//page to show when app is offline
+const urlsToCache= ['index.html','offline.html', 'images/bg.webp' ]//page to show when app is offline
 const self = this; // why alias?
 
 //install ServiceWorker - callback function after install

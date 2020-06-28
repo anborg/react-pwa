@@ -29,7 +29,7 @@ const App = () => {
     return (
         <div className="main-container">
                 <label>First name:
-                <input id="searchfield" type="text" className="search" placeholder="Which city? ..."
+                <input id="searchfield" type="text" className="search" placeholder="Which city? ..." autoFocus
                     value={query}
                     onChange={ (e) => setQuery(e.target.value)}  
                     onKeyPress={search}
