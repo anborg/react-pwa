@@ -28,13 +28,14 @@ const App = () => {
     // value and onChange are IMPORTANT, must come from state
     return (
         <div className="main-container">
-                <label>First name:</label>
+                <label>First name:
                 <input id="searchfield" type="text" className="search" placeholder="Which city? ..."
                     value={query}
                     onChange={ (e) => setQuery(e.target.value)}  
                     onKeyPress={search}
                     // check Tutorial Event & Input handling.
                 />
+                </label>
                 {weather.main && ( // If weather data is retrived successfuly, display the content
                     <div className="city">
                         <h2 className="cityName">
